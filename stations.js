@@ -82,15 +82,15 @@
   }
 
   function updateData(stationData, selectedStation, stationLetters, listOfStations) {
+    'use strict';
     listOfStations.push(selectedStation);
     delete stationData[selectedStation.key];
     delete stations[selectedStation.key];
-    for(letter of selectedStation.set) {
+    for(let letter of selectedStation.set) {
       alphabet = alphabet.replace(letter, '');
       delete stationLetters[letter];
     }
-    createStationData(stations, alphabet)
-    return stationData;
+    return createStationData(stations, alphabet);
   }
 
   function renderStationList(list) {
